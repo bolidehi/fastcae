@@ -54,7 +54,7 @@ namespace Setting
 		 * @param option 绘图信息配置类对象
 		 * @since 2.5.0
 		 */
-		GraphOptionDialog(GUI::MainWindow *mainwindow, GraphOption *option);
+		GraphOptionDialog(GUI::MainWindow *mainwindow, std::shared_ptr<GraphOption> option);
 		/**
 		 * @brief 析构函数
 		 * @since 2.5.0
@@ -112,7 +112,7 @@ namespace Setting
 		 * @brief 绘图信息配置类对象
 		 * @since 2.5.0
 		 */
-		GraphOption *_graphOption{};
+		std::shared_ptr<GraphOption> _graphOption;
 	};
 
 }

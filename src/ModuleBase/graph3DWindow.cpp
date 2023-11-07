@@ -42,6 +42,7 @@
 #include "MeshData/meshSingleton.h"
 #include "PreWindowInteractorStyle.h"
 #include <vtkVersionMacros.h>
+#include <memory>
 
 namespace ModuleBase
 {
@@ -346,7 +347,7 @@ namespace ModuleBase
 
 	void Graph3DWindow::updateGraphOption()
 	{
-		Setting::GraphOption *option = Setting::BusAPI::instance()->getGraphOption();
+		auto option = Setting::BusAPI::instance()->getGraphOption();
 		QColor topcolor = option->getBackgroundTopColor();
 		QColor bottomcolor = option->getBackgroundBottomColor();
 		_render->SetBackground2(topcolor.redF(), topcolor.greenF(), topcolor.blueF());
