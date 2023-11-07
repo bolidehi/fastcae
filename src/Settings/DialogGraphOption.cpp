@@ -27,7 +27,7 @@
 
 namespace Setting
 {
-	GraphOptionDialog::GraphOptionDialog(GUI::MainWindow *mainwindow, GraphOption *op) : /* QFDialog(mainwindow),*/
+	GraphOptionDialog::GraphOptionDialog(GUI::MainWindow *mainwindow, std::shared_ptr<GraphOption> op) : /* QFDialog(mainwindow),*/
 																						 _ui(new Ui::GraphOptionDialog), _mainWindow(mainwindow), _graphOption(op)
 	{
 		_ui->setupUi(this);

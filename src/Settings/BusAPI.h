@@ -27,6 +27,7 @@
 #include <QStringList>
 #include <QColor>
 #include "SettingAPI.h"
+#include <memory>
 
 namespace GUI
 {
@@ -53,7 +54,7 @@ namespace Setting
 		 * @return BusAPI* 返回设置信息管理类的单例对象
 		 * @since 2.5.0
 		 */
-		static BusAPI *instance();
+		static std::shared_ptr<BusAPI> instance();
 		/**
 		 * @brief 将设置信息写出ini配置文件
 		 * @since 2.5.0
@@ -104,7 +105,7 @@ namespace Setting
 		 * @return GraphOption* 返回绘图选项设置对象
 		 * @since 2.5.0
 		 */
-		GraphOption *getGraphOption();
+		std::shared_ptr<GraphOption> getGraphOption();
 		/**
 		 * @brief 获取最近打开文件的列表
 		 * @return QStringList 返回最近打开文件的列表
@@ -208,7 +209,7 @@ namespace Setting
 		 * @brief 析构函数
 		 * @since 2.5.0
 		 */
-		~BusAPI();
+		~BusAPI() = default;
 		/**
 		 * @brief 从ini文件读取配置信息
 		 * @since 2.5.0
@@ -220,29 +221,29 @@ namespace Setting
 		 * @brief 配置信息管理类的单例对象
 		 * @since 2.5.0
 		 */
-		static BusAPI *_ins;
+		static std::shared_ptr<BusAPI> _ins;
 		/**
 		 * @brief 主窗口配置信息类对象
 		 * @since 2.5.0
 		 */
-		MainSetting *_mainSetting{};
+		std::shared_ptr<MainSetting> _mainSetting;
 		// 		SolverManager* _solvers{};
 		// 		SolveOption* _solveOption{};
 		/**
 		 * @brief 绘图选项配置信息类对象
 		 * @since 2.5.0
 		 */
-		GraphOption *_graphOption{};
+		std::shared_ptr<GraphOption> _graphOption;
 		/**
 		 * @brief 输出消息配置信息类对象
 		 * @since 2.5.0
 		 */
-		MessageSetting *_messageSetting{};
+		std::shared_ptr<MessageSetting> _messageSetting;
 		/**
 		 * @brief 主窗口对象
 		 * @since 2.5.0
 		 */
-		GUI::MainWindow *_mainWindow{};
+		GUI::MainWindow *_mainWindow = nullptr;
 		//		bool _isDesignModel{ false };
 	};
 }
