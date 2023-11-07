@@ -81,7 +81,8 @@ namespace Command
 			return TopoDS_Shape();
 
 		std::vector<TopoDS_Wire> wires = w;
-		std::sort(wires.begin(), wires.end(), Wire_Compare());
+		std::sort(wires.begin(), wires.end(),
+				  std::function<bool(const TopoDS_Wire&, const TopoDS_Wire&)> (Wire_Compare()));
 		std::list<TopoDS_Wire> wire_list;
 		wire_list.insert(wire_list.begin(), wires.rbegin(), wires.rend());
 

@@ -36,31 +36,24 @@
 
 namespace Setting
 {
-	BusAPI *BusAPI::_ins = nullptr;
+	std::shared_ptr<BusAPI> BusAPI::_ins = nullptr;
 
-	BusAPI *BusAPI::instance()
+	std::shared_ptr<BusAPI> BusAPI::instance()
 	{
-		if (_ins == nullptr)
-		{
-			_ins = new BusAPI;
+		class TempBusAPI : public BusAPI {};
+		if(_ins == nullptr) {
+			_ins = std::make_shared<TempBusAPI>();
 		}
 		return _ins;
 	}
 	BusAPI::BusAPI()
 	{
-		_mainSetting = new MainSetting;
+		_mainSetting = std::make_shared<MainSetting>();
 		// 		_solvers = new SolverManager;
 		// 		_solveOption = new SolveOption;
-		_graphOption = new GraphOption;
-		_messageSetting = new MessageSetting;
+		_graphOption = std::make_shared<GraphOption>();
+		_messageSetting = std::make_shared<MessageSetting>();
 		readINI();
-	}
-	BusAPI::~BusAPI()
-	{
-		delete _mainSetting;
-		// 		delete _solvers;
-		// 		delete _solveOption;
-		delete _graphOption;
 	}
 	void BusAPI::setWorkingDir()
 	{
@@ -158,7 +151,7 @@ namespace Setting
 		return _mainWindow;
 	}
 
-	GraphOption *BusAPI::getGraphOption()
+	std::shared_ptr<GraphOption> BusAPI::getGraphOption()
 	{
 		return _graphOption;
 	}

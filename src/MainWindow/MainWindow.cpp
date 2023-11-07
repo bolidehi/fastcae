@@ -119,7 +119,7 @@ namespace GUI {
 			setWorkingDir();
 
 		Setting::BusAPI::instance()->setMainWindow(this);
-		Setting::GraphOption* gp = Setting::BusAPI::instance()->getGraphOption();
+		auto gp = Setting::BusAPI::instance()->getGraphOption();
 		_ui->actionDisplayPoint->setChecked(gp->isShowGeoPoint());
 		_ui->actionDisplayCurve->setChecked(gp->isShowGeoEdge());
 		_ui->actionDisplayFace->setChecked(gp->isShowGeoSurface());
@@ -936,7 +936,7 @@ namespace GUI {
 		bool				  checkcurve  = _ui->actionDisplayCurve->isChecked();
 		bool				  checkface	  = _ui->actionDisplayFace->isChecked();
 
-		Setting::GraphOption* gp		  = Setting::BusAPI::instance()->getGraphOption();
+		auto gp		  = Setting::BusAPI::instance()->getGraphOption();
 		gp->isShowGeoPoint(checkvertex);
 		gp->isShowGeoEdge(checkcurve);
 		gp->isShowGeoSurface(checkface);

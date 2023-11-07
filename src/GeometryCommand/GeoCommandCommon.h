@@ -51,8 +51,7 @@ namespace Command
 
 
 	// sort bounding boxes according to diagonal length
-	class Wire_Compare : public std::binary_function<const TopoDS_Wire&,
-		const TopoDS_Wire&, bool>
+	class Wire_Compare
 	{
 	public:
 		bool operator() (const TopoDS_Wire& w1, const TopoDS_Wire& w2)

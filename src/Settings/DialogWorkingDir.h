@@ -25,6 +25,7 @@
 
 //#include "SelfDefObject/QFDialog.h"
 #include <QDialog>
+#include <memory>
 
 namespace Ui
 {
@@ -53,7 +54,7 @@ namespace Setting
 		 * @param setting 主窗口配置信息对象
 		 * @since 2.5.0
 		 */
-		WorkingDirDialog(GUI::MainWindow *mw, MainSetting *setting);
+		WorkingDirDialog(GUI::MainWindow *mw, std::shared_ptr<MainSetting> setting);
 		/**
 		 * @brief 析构函数
 		 * @since 2.5.0
@@ -95,7 +96,7 @@ namespace Setting
 		 * @brief 主窗口配置信息管理类对象
 		 * @since 2.5.0
 		 */
-		MainSetting *_setting{};
+		std::shared_ptr<MainSetting> _setting;
 		/**
 		 * @brief 工作目录设置对话框的ui对象
 		 * @since 2.5.0

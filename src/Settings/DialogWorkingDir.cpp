@@ -31,7 +31,8 @@
 namespace Setting
 {
 
-	WorkingDirDialog::WorkingDirDialog(GUI::MainWindow *mw, MainSetting *setting) : /*QFDialog(mw),*/
+	WorkingDirDialog::WorkingDirDialog(GUI::MainWindow* mw, std::shared_ptr<MainSetting> setting)
+		: /*QFDialog(mw),*/
 																					_ui(new Ui::DialogWorkingDir), _setting(setting)
 	{
 		Q_UNUSED(mw);
