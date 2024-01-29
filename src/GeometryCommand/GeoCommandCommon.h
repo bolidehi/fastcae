@@ -1,5 +1,7 @@
-﻿#ifndef GEOCOMMANDCOMMON_H_
+#ifndef GEOCOMMANDCOMMON_H_
 #define GEOCOMMANDCOMMON_H_
+
+#include <functional> // for vs 2022
 
 #include <list>
 #include <vector>
