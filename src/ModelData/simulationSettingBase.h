@@ -1,4 +1,4 @@
-﻿#ifndef _SIMLUTATIONSETTINGBASE_H_
+#ifndef _SIMLUTATIONSETTINGBASE_H_
 #define _SIMLUTATIONSETTINGBASE_H_
 
 #include "modelDataAPI.h"
@@ -8,11 +8,11 @@ namespace ModelData
 {
 	class ModelDataBase;
 
-	class MODELDATAAPI SimlutationSettingBase : public DataProperty::DataBase
+	class MODELDATAAPI SimulationSettingBase : public DataProperty::DataBase
 	{
 	public:
-		SimlutationSettingBase(ModelDataBase* m);
-		~SimlutationSettingBase() = default;
+		SimulationSettingBase(ModelDataBase* m);
+		~SimulationSettingBase() = default;
 
 		QDomElement& writeToProjectFile(QDomDocument* doc, QDomElement* parent) override;
 		void readDataFromProjectFile(QDomElement* e) override;
